@@ -1,0 +1,79 @@
+* {
+	box-sizing: border-box;
+}
+/**
+ * Global Project Specific Variables
+ */
+@import "config/paths";
+@import "config/colors";
+@import "config/typography";
+@import "config/dimensions";
+@import "config/breakpoints";
+@import "config/magnific-popup";
+
+
+
+/**
+ * Custom Functions & Mixins & Animations
+ */
+@import "helpers/functions/opposite-direction";
+@import "helpers/functions/parseInt";
+@import "helpers/functions/easing";
+
+// @import "helpers/mixins/grid";
+@import "helpers/mixins/placeholder";
+@import "helpers/mixins/rem";
+@import "helpers/mixins/bp";
+@import "helpers/mixins/shape-triangle";
+
+
+
+/**
+ * Generated Fonts, Icon Fonts & Sprites
+ * ( - Each one requests external resources, keep out of critical css? - )
+ */
+
+
+
+/**
+ * Vendor Styles
+ * ( - Not Modified for Maintainability - )
+ * ( - Reset/Normalize First - )
+ */
+@import "vendor/normalize";
+@import "vendor/polyfill.object-fit";
+@import "vendor/moz-backround-picture";
+@import "vendor/magnific-popup";
+@import "vendor/slick";
+
+
+
+/**
+ * Soft Helpers
+ * ( - Meant to be overriden with styles later on - )
+ */
+@import "helpers/soft/reset";
+@import "helpers/soft/list";
+
+
+
+/**
+ * Your Custom Styles
+ */
+@import "elements/site";
+@import "elements/footer";
+@import "elements/header";
+@import "elements/hero";
+@import "elements/events";
+
+@import "helpers/typography/typeplate";
+
+
+
+/**
+ * Strong Helpers
+ * ( - Not Meant to be overriden - )
+ */
+@import "helpers/strong/nocollapse";
+@import "helpers/strong/clearfix";
+@import "helpers/strong/visuallyhidden";

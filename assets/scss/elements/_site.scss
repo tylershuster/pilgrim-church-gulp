@@ -1,0 +1,506 @@
+/* =========================================
+		Site
+   ========================================= */
+
+html {
+	background: rgb(0, 183, 255); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(0, 183, 255, 0.8) 0%, rgba(0, 183, 255, 0.3) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(0, 183, 255, 0.8) 0%,rgba(0, 183, 255, 0.3) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(0, 183, 255, 0.8) 0%,rgba(0, 183, 255, 0.3) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+	background-attachment: fixed;
+
+	&:before {
+		content: "";
+		position: fixed;
+		background-image: url('http://pilgrimchurchredding.org/cloud.png');
+		width: 940px;
+		display: block;
+		height: 470px;
+		background-size: contain;
+		background-repeat: no-repeat;
+		animation: 120s cloud-drift ease-in-out infinite;
+		transform: scale(-1,1);
+		top: -20px;
+	}
+
+	&:after {
+		content: "";
+		position: fixed;
+		background-image: url('http://pilgrimchurchredding.org/cloud.png');
+		width: 660px;
+		top: 360px;
+		display: block;
+		height: 390px;
+		background-size: contain;
+		background-repeat: no-repeat;
+		animation: 200s cloud-drift ease-in-out infinite;
+		z-index: 0;
+	}
+}
+
+body {
+	background-image: url("http://pilgrimchurchredding.org/tent.svg");
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: auto 30vh;
+	background-attachment: fixed;
+	animation: 300s building-drift ease-in-out infinite;
+	overflow-x: hidden;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+header,
+main {
+	background-color: white;
+	border-color: rgb(204, 9, 47);
+	border-style: solid;
+	border-width: 0px 1px;
+	z-index: 9;
+}
+
+main {
+	border-bottom-width: 1px;
+}
+
+@keyframes building-drift {
+	0% {
+		background-position: left bottom;
+	}
+
+	62% {
+		background-position: right bottom;
+	}
+
+	100% {
+		background-position: left bototm;
+	}
+}
+
+@keyframes cloud-drift {
+	0% {
+		left: -940px;
+	}
+
+	50% {
+		left: 100vw;
+	}
+
+	100% {
+		left: -940px;
+	}
+}
+
+p + p {
+	margin-top: 1rem;
+	// text-indent: 2rem;
+
+	.home &,
+	&.term-description,
+	&.excerpt {
+		text-indent: 0;
+	}
+}
+
+img{
+	max-width: 100%;
+	height: auto;
+}
+hr {
+	margin: 2rem 0px;
+	border-width: 1px 0px 0px;
+	border-style: solid none none;
+	border-color: #EDEDED -moz-use-text-color -moz-use-text-color;
+	-moz-border-top-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	border-image: none;
+}
+
+.archive article date {
+    margin-bottom: 0.5rem;
+    float: left;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.big-cap {
+    // font-size: 3.3rem;
+    // float: left;
+    // display: block;
+    // line-height: 1em;
+    // margin-top: 0.5rem;
+    font-family: Bodoni;
+    // margin-right: 0.1em;
+}
+ul, ol {
+  padding-left: 1.5rem;
+  margin: 0px 0px 1rem;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: "Bodoni", sans-serif;
+	font-weight: normal;
+	line-height: 1.5;
+	.nighttime & {
+		// color: $c_nighttext;
+	}
+	.start-quote:first-child {
+		margin-left: -0.5em;
+	}
+	a {
+		text-transform: inherit;
+		font-variant: inherit;
+	}
+}
+
+#menu-main-navigation {
+		display: none;
+
+		@include bp($b_laptop) {
+			display: block;
+
+			&--mobile {
+				display: none;
+			}
+
+		}
+}
+
+a[href="#"] {
+    text-decoration: none;
+    cursor: default;
+}
+
+.site,
+.site__body {
+	margin: 0;
+	padding: 0;
+	color: #000;
+	cursor: default;
+	float: left;
+	width: 100%;
+}
+
+
+.site {
+	font-family: "Helvetica", "Helvetica Neue", HelveticaNeue, "TeX Gyre Heros", TeXGyreHeros, FreeSans, "Nimbus Sans L", "Liberation Sans", Arimo, "Open Sans", Arial, sans-serif;
+	line-height: 1.4;
+	font-size: 0.17in;
+	line-height: 1.6;
+	// display: flex;
+	// flex-flow: row wrap;
+	// justify-content: center;
+	// align-content: center;
+	height: 100%;
+	&.nighttime {
+		background-color: $c_nightbg;
+	}
+}
+
+.site__body {
+	position: relative;
+	// display: flex;
+	// align-content: center;
+	// justify-content: center;
+	// flex-flow: column nowrap;
+	padding: 0 calc(100vw - 86rem);
+	.nighttime & {
+		// color: $c_nighttext;
+	}
+}
+
+.site__body__main {
+	article {
+		float: left;
+		width: 100%;
+		margin-bottom: 2rem;
+		border-bottom: 1px solid #ededed;
+		padding-bottom: 2rem;
+	}
+}
+
+.site__body__header,
+.site__body__main {
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	padding: 0 ( $d_default_gutter * 1.5 );
+
+
+
+	@include bp($b_mobile) {
+		max-width: 40rem + ( $d_default_gutter * 3 * 2 );
+	}
+
+}
+
+.site__social {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $c_x_white;
+    padding: 0.5rem;
+    border-color: $c_x_black;
+    border-width: 0px 0px 1px 1px;
+    border-style: solid;
+
+
+    .nighttime & {
+    	// background-color: $c_x_black;
+			// border-color: $c_x_white;
+
+			img {
+				// filter: grayscale( 100% ) contrast( 50% );
+			}
+    }
+
+    a {
+    	font-size: 1rem;
+			line-height: 1rem;
+			margin: 0px 0.25rem;
+    }
+
+    img {
+    	max-width: 1rem;
+			height: auto;
+			filter: grayscale( 100% );
+
+			&:hover {
+				filter: grayscale( 0% );
+			}
+    }
+}
+
+.site__map {
+	margin-top: 3rem;
+	height: 100vh;
+	background-image: url("../img/map.png");
+	background-size: cover;
+}
+
+
+.screen-reader-text {
+	visibility: hidden;
+}
+
+
+p:first-of-type {
+	margin-top: 0;
+}
+
+a {
+	color: $c_black;
+	text-transform: lowercase;
+	font-variant: small-caps;
+	letter-spacing: 0.7px;
+	text-decoration-color: $c_red;
+
+	.nighttime & {
+		// color: $c_nighttext;
+	}
+
+}
+
+
+#directory {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	list-style-type: none;
+	padding: 0;
+
+	a {
+		display: flex;
+		flex-flow: column nowrap;
+		text-align: center;
+		margin-bottom: 1rem;
+		flex-grow: 1;
+		justify-content: space-between;
+		height: 100%;
+		padding: $d_default_gutter 0;
+
+		img {
+			max-width: 150px;
+			height: auto;
+			margin: 0px auto;
+		}
+	}
+}
+
+.home__widgets {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	margin-top: 2rem;
+
+	#latest_sermons,
+	#upcoming_events {
+		flex-grow: 1;
+		flex-basis: 100%;
+		min-width: 15rem;
+		margin-bottom: 2rem;
+
+		@include bp($b_tablet) {
+			flex-basis: 50%;
+			padding-right: 2rem;
+		}
+	}
+}
+
+#upcoming_events,
+#latest_sermons {
+	h4 {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		line-height: 1.4em;
+
+		a {
+			max-width: 61%;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		u {
+			width: 16%;
+			border-bottom: 2px dotted $c_black;
+			flex-grow: 1;
+			margin: 0.2em;
+
+			.nighttime & {
+				// border-color: $c_white;
+			}
+		}
+		date {
+			text-align: right;
+			align-self: flex-end;
+			white-space: nowrap;
+			margin-bottom: -0.1em;
+			span {
+				color: $c_red;
+				position: relative;
+				bottom: 0.1em;
+			}
+		}
+	}
+}
+
+audio.recording {
+	width: 100%;
+}
+
+.type-recording,
+.sermon__subscribe {
+	margin-bottom: 2rem;
+	border-bottom: 1px solid #ededed;
+	padding-bottom: 2rem;
+}
+
+.recording h2 small {
+    position: relative;
+    bottom: 0.2em;
+    font-size: 50%;
+}
+.widget__title {
+    margin-top: 1em;
+}
+
+sup {
+	top: -0.37em;
+	text-transform: lowercase;
+	font-variant: small-caps;
+	text-decoration: underline;
+}
+.ampersand {
+	font-size: 0.8rem;
+	font-family: Baskerville, Georgia, Bodoni;
+	font-style: italic;
+	letter-spacing: -1px;
+	margin-left: -1.6px;
+}
+
+.alignright {
+	float: right;
+	margin-left: 1rem;
+}
+.alignleft {
+	float: left;
+	margin-right: 1rem;
+}
+
+#events_list {
+	display: block;
+
+	@include bp($b_tablet) {
+		display: none;
+	}
+}
+#events_calendar {
+	display: none;
+
+	@include bp($b_tablet) {
+		display: block;
+	}
+}
+
+table.em-calendar {
+	thead {
+		td:last-of-type {
+			text-align: right;
+		}
+	}
+	td {
+		vertical-align: top;
+		line-height: 1;
+		width: calc( 100% / 7 );
+    padding: 0.5rem;
+	}
+	a {
+	    text-transform: initial;
+	    font-variant: initial;
+	    font-weight: normal;
+	    font-size: 0.8rem;
+	    color: $c_black !important;
+	    text-decoration-color: $c_red !important;
+	    .eventful > & {
+	    	text-decoration: none;
+	    	color: $c_red;
+	    }
+	}
+	.month_name  {
+		text-align: center;
+	}
+	ul, ol {
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+	    margin-bottom: 0.25rem;
+	    border-bottom: 1px solid #ededed;
+	    padding-bottom: 0.25rem;
+
+	    &:last-of-type {
+	    	border-bottom: none;
+	    	margin-bottom: 0;
+	    }
+    }
+	}
+}
+
+.single-friend {
+	.wp-post-image {
+		display: block;
+		margin: 0 auto;
+		@include bp($b_tablet) {
+			float: left;
+			margin-right: 1.5rem;
+		}
+	}
+}
