@@ -22,6 +22,7 @@ html {
 		animation: 120s cloud-drift ease-in-out infinite;
 		transform: scale(-1,1);
 		top: -20px;
+		z-index: 0;
 	}
 
 	&:after {
@@ -48,7 +49,10 @@ body {
 	animation: 300s building-drift ease-in-out infinite;
 	overflow-x: hidden;
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: column nowrap;
+	align-items: flex-start;
+	position: relative;
+	z-index: 9;
 }
 
 header,
@@ -206,21 +210,12 @@ a[href="#"] {
 	// align-content: center;
 	// justify-content: center;
 	// flex-flow: column nowrap;
-	padding: 0 calc(100vw - 86rem);
+	// padding: 0 calc(100vw - 86rem);
 	.nighttime & {
 		// color: $c_nighttext;
 	}
 }
 
-.site__body__main {
-	article {
-		float: left;
-		width: 100%;
-		margin-bottom: 2rem;
-		border-bottom: 1px solid #ededed;
-		padding-bottom: 2rem;
-	}
-}
 
 .site__body__header,
 .site__body__main {
@@ -235,6 +230,16 @@ a[href="#"] {
 		max-width: 40rem + ( $d_default_gutter * 3 * 2 );
 	}
 
+}
+.site__body__main {
+	padding-bottom: 1rem;
+	article {
+		float: left;
+		width: 100%;
+		margin-bottom: 2rem;
+		border-bottom: 1px solid #ededed;
+		padding-bottom: 2rem;
+	}
 }
 
 .site__social {
@@ -279,10 +284,14 @@ a[href="#"] {
 }
 
 .site__map {
-	margin-top: 3rem;
 	height: 100vh;
 	background-image: url("../img/map.png");
 	background-size: cover;
+	order: 9;
+
+	@include bp( $b_tablet ) {
+		margin-top: 3rem;
+	}
 }
 
 
@@ -352,6 +361,14 @@ a {
 			padding-right: 2rem;
 		}
 	}
+}
+
+.home__liturgical-info {
+	padding: #{$d_default_gutter / 2};
+	border-width: 1rem 0;
+	border-style: solid;
+	margin-bottom: $d_default_gutter;
+	text-align: center;
 }
 
 #upcoming_events,
